@@ -35,8 +35,21 @@
             position: sticky;
             top: 0;
         }
-
-
+        .box {
+            width: 100px;
+            height: 100px;
+            background: red;
+            border: 3px dashed navy;
+            float: left;
+            margin-left: -10px;
+        }
+        .box:nth-child(2n) {
+            margin-top: 30px;
+        }
+        .box3 {
+            position: relative;
+            z-index: 999;
+        }
     </style>
 </head>
 <body>
@@ -44,7 +57,7 @@
         <div class="child"></div>
     </div> -->
 
-    <div class="container">
+    <!-- <div class="container">
         <section class="section">
             <h1>제목1</h1>
         </section>
@@ -60,9 +73,13 @@
         <section class="section">
             <h1>제목5</h1>
         </section>
-    </div>
+    </div> -->
 
-
+    <div class="box">1</div>
+    <div class="box box2">2</div>
+    <div class="box box3">3</div>
+    <div class="box">4</div>
+    <div class="box">5</div>
 
 
 
