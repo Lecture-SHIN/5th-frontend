@@ -9,9 +9,14 @@
         ul {
             list-style-type: none;
             background-color: black;
-            overflow: hidden;
             margin: 0;
             padding: 0;
+        }
+        
+        ul.clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
         }
 
         li {
@@ -33,6 +38,7 @@
         }
 
         li.dropdown {
+            position: relative;
             display: inline-block;
         }
 
@@ -64,7 +70,7 @@
 <body>
 
     <nav>
-        <ul>
+        <ul class="clearfix">
             <li><a href="#Intro">Intro</a></li>
             <li><a href="#course">course</a></li>
             <li class="dropdown">
