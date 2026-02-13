@@ -33,13 +33,26 @@
         // includes() : 지정 요소 존재 여부
 
         let points = [40, 500, 25, 11, 82];
-        // sort(함수) : 함수 -> 정렬   
+        // sort(함수) : 함수 -> 정렬
+        // points.sort((x, y) => y - x);
+
         // forEach    : 함수 -> 내부 반복
+        // points.forEach(point => console.log(point));
+
         // map(함수)   : 함수 -> 내부 반복 이후 요소 반환
+        // let multiply = points.map(point => (point*0.1));
+        
         // find(함수)  : 함수 -> 내부 반복 이후 요소 반환
         // filter(함수) : 함수 -> 내부 반복 이후 조건에 맞는 요소 반환
+        // let foundPoint = points.find(point => (point===2.5));
+        
         // reduce(함수) : 함수 -> 내부 반복 이후 누적 결과 반환
-
+        // let sum = points.reduce((acc, cur) => acc + cur , 0);
+        let avg = points.reduce((acc, cur, idx, arr) => {
+            acc += cur;
+            return idx === arr.length - 1 ? acc / arr.length : acc; 
+        }, 0)
+        console.log(avg);
     </script>
 </body>
 </html>
