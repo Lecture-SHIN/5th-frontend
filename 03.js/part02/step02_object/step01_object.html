@@ -69,8 +69,12 @@
                 this.price = price;
             }
 
+            getInfo() {
+                return this.name + ' ' + this.price
+            }
+
             get displayPrice() {
-                return price;
+                return this.price;
             }
 
             set discountPrice(rate) {
@@ -80,7 +84,7 @@
         }
 
         const keyboard = new Product('키보드', 50000);
-        console.log(keyboard);
+        console.log(keyboard.getInfo());
 
     </script>
 </body>
