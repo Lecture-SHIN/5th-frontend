@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let ce = { name: 'ce' };
+        let jsonCE = "{\"name\": \"ce\"}";
+
+        // console.log(JSON.stringify(ce));
+        // console.log(JSON.parse(jsonCE));
+
+        let names = ['ce', 'it', 'cloud'];
+        let [, it, cloud] = names;
+        console.log(it);
+
+        let info = {
+            name: 'js',
+            age: 40,
+            hobbies: { h1: 'study' }
+        };
+
+        let { name, age, hobbies } = info;
+        console.log(hobbies);
+
+        const bret = {
+            "id": 1,
+            "name": "Leanne Graham",
+            "username": "Bret",
+            "email": "Sincere@april.biz",
+            "address": {
+                "street": "Kulas Light",
+                "suite": "Apt. 556",
+                "city": "Gwenborough",
+                "zipcode": "92998-3874",
+                "geo": {
+                    "lat": "-37.3159",
+                    "lng": "81.1496"
+                }
+            },
+            "phone": "1-770-736-8031 x56442",
+            "website": "hildegard.org",
+            "company": {
+                "name": "Romaguera-Crona",
+                "catchPhrase": "Multi-layered client-server neural-net",
+                "bs": "harness real-time e-markets"
+            }
+        }
+
+        let { lat, lng } = bret.address.geo;
+        console.log(lat);
+        console.log(lng);
+
+    </script>
+</body>
+
+</html>
