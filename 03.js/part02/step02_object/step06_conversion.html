@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 명시적
+        // console.log(String(123));
+        // console.log(String(true));
+        // console.log(String(null));
+        // console.log(String(undefined));
+        // console.log(String([1, 2, 3]));
+
+        // console.log(Number('123'));
+        // console.log(Number('abc'));
+        // console.log(Number(true));
+        // console.log(Number(false));
+        // console.log(Number(null));
+        // console.log(Number(undefined));
+        // console.log(Number(''));
+
+        // console.log(Boolean(0));
+        // console.log(Boolean(''));
+        // console.log(Boolean(null));
+        // console.log(Boolean(undefined));
+        // console.log(Boolean(NaN));
+        // console.log(Boolean([1, 2, 3]));
+        // console.log(Boolean({name: 'cloud'}));
+        // console.log(Boolean(' '));
+
+        // 암시적
+        // string + number, boolean, .. => string
+        console.log('100' + 50);
+        console.log('100' + undefined);
+
+        console.log('---');
+        // string, number, boolean, 나머지연산 => number
+        console.log('100' - 50);
+        console.log('100' * 50);
+        console.log('100' / 50);
+        console.log(100 + true);
+        console.log(100 * '포인트');
+
+
+
+
+    </script>
+</body>
+</html>
