@@ -46,9 +46,21 @@
 
         // v2 : NodeList : static 요소
         const queryElements = document.querySelectorAll('.red');
-        console.log(queryElements);
-        queryElements.forEach((el) => el.className = 'blue');
+        // console.log(queryElements);
+        // queryElements.forEach((el) => el.className = 'blue');
 
+        const beijing = document.getElementById('beijing');
+        // console.log(beijing);
+        beijing.textContent = 'Beijing';
+        beijing.innerText = '<b>Beijing</b>';
+        beijing.innerHTML = '<b>Beijing</b>';
+        beijing.style.color = 'gold';
+        beijing.style.fontSize = '24px';
+        // console.log(beijing.style.color);
 
+        const newLi = document.createElement('li');
+        beijing.append(newLi);
+        // beijing.removeChild(newLi);
+        console.log(newLi);
     </script>
 </body>
