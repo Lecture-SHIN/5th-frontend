@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // XMLHttpRequest 객체
+        function xhrAjax() {
+
+            // step01 객체 생성
+            var xhr = new XMLHttpRequest();
+
+            // step03 : 데이터 응답
+            xhr.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log(JSON.parse(this.responseText));
+                }
+            }
+
+            // step02 데이터 비동기로 요청
+            // 요청할 주소 : https://jsonplaceholder.typicode.com/users
+            xhr.open("GET", "https://jsonplaceholder.typicode.com/users");
+            xhr.send();
+        }
+        // xhrAjax();
+
+
+        // fetch
+        function fetchAjax() {
+            
+            // GET
+            fetch('https://jsonplaceholder.typicode.com/users')
+                .then(response => response.json())
+                .then(users => console.log(users))
+                .catch(error => console.log(error));
+
+        }
+        fetchAjax();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
