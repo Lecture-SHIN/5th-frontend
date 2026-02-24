@@ -31,7 +31,7 @@
             border: 1px solid #ccc;
         } */
 
-        /* .warning {
+        .warning {
             color: red;
             font-weight: bold;
         }
@@ -41,28 +41,71 @@
             height: 100px;
             display: block;
             margin-bottom: 5px;
-        } */
+        }
     </style>
 </head>
 
 <body>
-    <button id="theme-btn">테마 전환하기</button>
+    <!-- <button id="theme-btn">테마 전환하기</button>
     <script>
         const themeBtn = document.getElementById('theme-btn');
         themeBtn.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
         });
-    </script>
+    </script> -->
 
     <!-- event 객체 활용 : e.target.value -->
-    <textarea id="content" placeholder="내용을 입력하세요 (최대 20자)"></textarea>
+    <!-- <textarea id="content" placeholder="내용을 입력하세요 (최대 20자)"></textarea>
     <div>글자 수: <span id="char-count">0</span> / 20</div>
+
+    <script>
+        const textarea = document.getElementById('content');
+        const countSpan = document.getElementById('char-count');
+
+        textarea.addEventListener('input', (e) => {
+            const length = e.target.value.length;
+            countSpan.innerHTML = length;
+
+            if(length > 20) {
+                countSpan.classList.add('warning');
+            } else {
+                countSpan.classList.remove('warning');
+            }
+
+        });
+    </script> -->
 
     <!-- input.value -->
     <h2>오늘의 할 일</h2>
     <input type="text" id="todo-input" placeholder="할 일을 입력하세요">
     <button id="add-btn">추가</button>
     <ul id="todo-list"></ul>
+
+    <script>
+        const input = document.getElementById('todo-input');
+        const btn = document.getElementById('add-btn');
+        const list = document.getElementById('todo-list');
+
+        btn.addEventListener('click', () => {
+
+            // li 생성 <- input.value
+            const li = document.createElement('li');
+            li.innerHTML = input.value;
+
+            // x 버튼 생성
+            const delBtn = document.createElement('button');
+            delBtn.innerHTML = 'X';
+            delBtn.onclick = () => li.remove();
+
+            // 출력
+            li.appendChild(delBtn);
+            list.appendChild(li);
+
+            input.value = '';
+        });
+
+
+    </script>
 
 </body>
 
