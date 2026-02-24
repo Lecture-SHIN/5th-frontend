@@ -85,24 +85,72 @@
         const input = document.getElementById('todo-input');
         const btn = document.getElementById('add-btn');
         const list = document.getElementById('todo-list');
+        // 로드 : 데이터를 불러오기
+        window.onload = () => {
+            const savedTodos = JSON.parse(localStorage.getItem('todos')) || [];
+            savedTodos.forEach(todoText => createTodoElement(todoText));
+        }
 
-        btn.addEventListener('click', () => {
+        // 저장 : 리스트를 localStorage 저장
+        function saveTodos() {
+            const todoItems = [];
+            list.querySelectorAll('li').forEach(li => {
+                todoItems.push(li.firstChild.textContent);
+            });
+            localStorage.setItem('todos', JSON.stringify(todoItems));
+        }
 
+        // 출력 : UI 요소 생성
+        function createTodoElement(text) {
             // li 생성 <- input.value
             const li = document.createElement('li');
-            li.innerHTML = input.value;
+            li.innerHTML = text;
 
             // x 버튼 생성
             const delBtn = document.createElement('button');
-            delBtn.innerHTML = 'X';
-            delBtn.onclick = () => li.remove();
+            delBtn.innerHTML = ' X';
+            delBtn.onclick = () => {
+                li.remove();
+                saveTodos();
+            };
 
             // 출력
             li.appendChild(delBtn);
             list.appendChild(li);
+        }
 
+        // 추가 : 버튼 클릭 이벤트
+        btn.addEventListener('click', () => {
+            createTodoElement(input.value);
+            saveTodos();
             input.value = '';
         });
+
+        // btn.addEventListener('click', () => {
+
+        //     // li 생성 <- input.value
+        //     const li = document.createElement('li');
+        //     li.innerHTML = input.value;
+
+        //     // x 버튼 생성
+        //     const delBtn = document.createElement('button');
+        //     delBtn.innerHTML = ' X';
+        //     delBtn.onclick = () => li.remove();
+
+        //     // 출력
+        //     li.appendChild(delBtn);
+        //     list.appendChild(li);
+
+        //     input.value = '';
+        // });
+
+
+        // localStorage.setItem('user-name', 'js');
+        // console.log(localStorage.getItem('user-name'));
+
+        // const user1 = { id: 1, task: 'study' };
+        // localStorage.setItem('user1', JSON.stringify(user1));
+        // const foundUser1 = JSON.parse(localStorage.getItem('user1'));
 
 
     </script>
