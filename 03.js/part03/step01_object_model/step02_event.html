@@ -62,7 +62,7 @@
         });
     </script> -->
 
-    <div>
+    <!-- <div>
         div
         <p>
             paragraph
@@ -94,10 +94,28 @@
             e.stopPropagation();
         })
 
+    </script> -->
 
+    <a href="https://naver.com" target="_blank">네이버 이동</a>
+
+    <hr>
+    <h1>네이버 검색 서버</h1>
+    <form action="https://search.naver.com/search.naver" method="get">
+        <input type="text" name="query" id="">
+        <input type="submit" value="검색">
+    </form>
+
+    <script>
+        const aElement = document.querySelector('a');
+        aElement.addEventListener('click', (e) => {
+            e.preventDefault();
+        });
+
+        const formElement = document.querySelector('form');
+        formElement.addEventListener('click', (e) => {
+            e.preventDefault();
+        });
     </script>
-
-
 </body>
 
 </html>
