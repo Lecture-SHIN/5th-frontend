@@ -9,7 +9,39 @@
 </head>
 
 <body>
+    <div id="user-container"></div>
+    
     <script>
+        
+        const BASE_URL = 'https://jsonplaceholder.typicode.com/users';
+        // 실제 활용
+        async function loadUsers() {
+            try {
+                const response = await fetch(BASE_URL);
+                if (!response.ok) throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                const data = await response.json();
+                
+                const userContainer = document.getElementById('user-container');
+                // name, email
+                userContainer.innerHTML = '';
+
+                data.forEach(user => {
+                    const article = document.createElement('article');
+                    article.className = 'user'
+                    article.innerHTML = `
+                        <h2>${user.name}</h2>
+                        <p>${user.email}</p>
+                    `;
+                    userContainer.appendChild(article);
+                });
+            } catch (error) {
+                
+            }
+        }
+        loadUsers();
+
+
+
         // XMLHttpRequest 객체
         function xhrAjax() {
 
@@ -30,7 +62,6 @@
         }
         // xhrAjax();
 
-        const BASE_URL = 'https://jsonplaceholder.typicode.com/users';
         // fetch
         function fetchAjax() {
 
@@ -110,10 +141,10 @@
         async function fetchGetUsers() {
             try {
                 const response = await fetch(BASE_URL);
-                if(!response.ok) throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                if (!response.ok) throw new Error(`HTTP ${response.status}: ${response.statusText}`);
                 const data = await response.json();
                 return data;
-            } catch(error) {
+            } catch (error) {
                 throw error;
             }
         }
@@ -121,10 +152,10 @@
         async function fetchGetUser(id) {
             try {
                 const response = await fetch(`${BASE_URL}/${id}`);
-                if(!response.ok) throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                if (!response.ok) throw new Error(`HTTP ${response.status}: ${response.statusText}`);
                 const data = await response.json();
                 return data;
-            } catch(error) {
+            } catch (error) {
                 throw error;
             }
         }
