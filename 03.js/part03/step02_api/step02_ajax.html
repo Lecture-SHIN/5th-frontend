@@ -14,10 +14,11 @@
     <script>
         
         const BASE_URL = 'https://jsonplaceholder.typicode.com/users';
+        const DATA_URL = 'http://127.0.0.1:5500/03.js/part03/step02_api/data/data.json';
         // 실제 활용
         async function loadUsers() {
             try {
-                const response = await fetch(BASE_URL);
+                const response = await fetch(DATA_URL);
                 if (!response.ok) throw new Error(`HTTP ${response.status}: ${response.statusText}`);
                 const data = await response.json();
                 
